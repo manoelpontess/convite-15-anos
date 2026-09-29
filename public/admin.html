@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Painel de Convidados</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <!-- ===== LOGIN SECTION ===== -->
+  <div class="login-container" id="login-section">
+    <div class="login-card">
+      <div class="login-header">
+        <h1>🎀 Painel Admin</h1>
+        <p>Gerencie os convidados da festa</p>
+      </div>
+      
+      <form id="login-form" class="login-form">
+        <div class="form-group">
+          <label for="admin-email">E-mail</label>
+          <input type="email" id="admin-email" placeholder="admin@convite.com" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="admin-password">Senha</label>
+          <input type="password" id="admin-password" placeholder="••••••••" required>
+        </div>
+        
+        <p class="login-error" id="login-error"></p>
+        
+        <button type="submit" class="login-btn">Entrar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== DASHBOARD SECTION ===== -->
+  <div class="admin-layout" id="dashboard-section">
+    
+    <!-- Top Bar -->
+    <header class="admin-topbar">
+      <div class="admin-topbar-left">
+        <h2>🎀 Painel de Convidados</h2>
+        <span>Convite Digital - 15 Anos</span>
+      </div>
+      <button class="admin-logout-btn" id="logout-btn">
+        Sair
+      </button>
+    </header>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card confirmed">
+        <p class="stat-label">Confirmados</p>
+        <p class="stat-number" id="stat-confirmed">0</p>
+        <p class="stat-detail" id="stat-confirmed-detail">+ 0 acompanhante(s)</p>
+      </div>
+      <div class="stat-card pending">
+        <p class="stat-label">Pendentes</p>
+        <p class="stat-number" id="stat-pending">0</p>
+        <p class="stat-detail">Aguardando resposta</p>
+      </div>
+      <div class="stat-card declined">
+        <p class="stat-label">Recusados</p>
+        <p class="stat-number" id="stat-declined">0</p>
+        <p class="stat-detail">Não poderão ir</p>
+      </div>
+      <div class="stat-card total">
+        <p class="stat-label">Total</p>
+        <p class="stat-number" id="stat-total">0</p>
+        <p class="stat-detail" id="stat-total-detail">0 pessoas ao total</p>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls-bar">
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Buscar convidado...">
+      </div>
+      
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="todos">Todos</button>
+        <button class="filter-tab" data-filter="confirmado">Confirmados</button>
+        <button class="filter-tab" data-filter="pendente">Pendentes</button>
+        <button class="filter-tab" data-filter="recusado">Recusados</button>
+      </div>
+
+      <button class="add-guest-btn" id="add-guest-btn">
+        + Adicionar
+      </button>
+      
+      <button class="export-btn" id="export-btn">
+        📥 Exportar CSV
+      </button>
+    </div>
+
+    <!-- Table -->
+    <div class="table-container">
+      <table class="guests-table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th>Acomp.</th>
+            <th>Status</th>
+            <th>Data</th>
+            <th>Mensagem</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="guests-tbody">
+        </tbody>
+      </table>
+      
+      <div class="empty-state" id="empty-state" style="display: none;">
+        <div class="empty-icon">📭</div>
+        <h3>Nenhum convidado encontrado</h3>
+        <p>Os convidados aparecerão aqui quando confirmarem presença pelo convite digital.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ADD GUEST MODAL ===== -->
+  <div class="modal-overlay" id="add-guest-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Adicionar Convidado</h3>
+        <button class="modal-close" id="modal-close">✕</button>
+      </div>
+      
+      <form id="add-guest-form" class="modal-form">
+        <div class="form-group">
+          <label for="add-name">Nome completo *</label>
+          <input type="text" id="add-name" placeholder="Nome do convidado" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="add-email">E-mail</label>
+          <input type="email" id="add-email" placeholder="email@exemplo.com">
+        </div>
+        
+        <div class="form-group">
+          <label for="add-phone">Telefone</label>
+          <input type="tel" id="add-phone" placeholder="(00) 00000-0000">
+        </div>
+        
+        <div class="form-group">
+          <label for="add-companions">Acompanhantes</label>
+          <input type="number" id="add-companions" min="0" max="10" value="0">
+        </div>
+        
+        <div class="form-group">
+          <label for="add-status">Status</label>
+          <select id="add-status">
+            <option value="pendente">Pendente</option>
+            <option value="confirmado">Confirmado</option>
+            <option value="recusado">Recusado</option>
+          </select>
+        </div>
+        
+        <button type="submit" class="modal-submit">Adicionar Convidado</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Firebase Config - DEVE SER O MESMO DO index.html
+    window.FIREBASE_CONFIG = {
+      apiKey: "SUA_API_KEY_AQUI",
+      authDomain: "SEU_PROJETO.firebaseapp.com",
+      projectId: "SEU_PROJECT_ID",
+      storageBucket: "SEU_PROJETO.appspot.com",
+      messagingSenderId: "SEU_SENDER_ID",
+      appId: "SEU_APP_ID"
+    };
+  </script>
+  <script type="module" src="js/admin.js"></script>
+
+</body>
+</html>

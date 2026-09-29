@@ -1,0 +1,19 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Convidados collection
+    match /convidados/{convidadoId} {
+      // Qualquer pessoa pode criar (confirmar presença)
+      allow create: if true;
+      
+      // Apenas admin autenticado pode ler, atualizar e deletar
+      allow read, update, delete: if request.auth != null;
+    }
+    
+    // Bloquear tudo mais
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
