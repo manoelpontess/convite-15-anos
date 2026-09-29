@@ -1,0 +1,18 @@
+🌐 Links do Projeto no Ar:
+🎉 Convite Público: https://convite-bianca-15anos.web.app (ou https://convite-bianca-15anos.firebaseapp.com)
+⚙️ Painel Admin: https://convite-bianca-15anos.web.app/admin
+🐙 Repositório GitHub: https://github.com/manoelpontess/convite-15-anos
+🚀 O que foi configurado e publicado:
+Projeto Firebase criado: convite-bianca-15anos
+Web App registrado: Credenciais reais injetadas no projeto (firebase-config.js, index.html e admin.html).
+Cloud Firestore: Banco de dados criado na região padrão e regras de segurança publicadas (qualquer convidado confirma presença; leitura/gestão apenas para admin autenticado).
+Firebase Hosting: Site estático publicado com rotas limpas (ex: /admin redireciona diretamente para o painel).
+GitHub: Repositório criado e 100% sincronizado na branch main.
+🔑 Acesso ao Painel Admin (/admin):
+Para criar seu usuário e senha de administrador do painel:
+
+Acesse: Console de Autenticação do Firebase
+Clique em Vamos começar (Get Started).
+Em Provedores nativos, ative E-mail/senha (Email/Password) e salve.
+Na aba Users (Usuários), clique em Adicionar usuário, digite o e-mail e a senha que deseja usar para gerenciar os convidados.
+Acesse https://convite-bianca-15anos.web.app/admin e faça login com essa conta!
