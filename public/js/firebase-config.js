@@ -6,14 +6,14 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/fireba
 import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, orderBy, onSnapshot, where, getCountFromServer, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
 
-// Firebase config - will be loaded from dados.txt or set directly
+// Firebase config
 const firebaseConfig = {
-  apiKey: window.FIREBASE_CONFIG?.apiKey || "SUA_API_KEY_AQUI",
-  authDomain: window.FIREBASE_CONFIG?.authDomain || "SEU_PROJETO.firebaseapp.com",
-  projectId: window.FIREBASE_CONFIG?.projectId || "SEU_PROJECT_ID",
-  storageBucket: window.FIREBASE_CONFIG?.storageBucket || "SEU_PROJETO.appspot.com",
-  messagingSenderId: window.FIREBASE_CONFIG?.messagingSenderId || "SEU_SENDER_ID",
-  appId: window.FIREBASE_CONFIG?.appId || "SEU_APP_ID"
+  apiKey: window.FIREBASE_CONFIG?.apiKey || "AIzaSyCgg4U7SYprv56KUSzb2OStQbSVL3re_a0",
+  authDomain: window.FIREBASE_CONFIG?.authDomain || "convite-bianca-15anos.firebaseapp.com",
+  projectId: window.FIREBASE_CONFIG?.projectId || "convite-bianca-15anos",
+  storageBucket: window.FIREBASE_CONFIG?.storageBucket || "convite-bianca-15anos.firebasestorage.app",
+  messagingSenderId: window.FIREBASE_CONFIG?.messagingSenderId || "335395927539",
+  appId: window.FIREBASE_CONFIG?.appId || "1:335395927539:web:f180b3f84dc9db03d90e86"
 };
 
 // Initialize Firebase
