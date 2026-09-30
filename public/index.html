@@ -3,250 +3,293 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Convite 15 anos - Bianca</title>
-  <meta name="description" content="Convite digital para a festa de 15 anos de Bianca. Confirme sua presença!">
-  <meta property="og:title" content="Convite 15 anos - Bianca">
-  <meta property="og:description" content="Você está convidado(a) para celebrar os 15 anos de Bianca!">
+  <title>Convite 15 anos - Bianca | Tropical Party</title>
+  <meta name="description" content="Convite digital para a festa de 15 anos de Bianca - Tropical Party. Confirme sua presença!">
+  <meta property="og:title" content="Convite 15 anos - Bianca | Tropical Party">
+  <meta property="og:description" content="Venha celebrar os 15 anos de Bianca comigo!">
   <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎀</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌺</text></svg>">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- ===== FLOATING PARTICLES ===== -->
+  <!-- Floating sun dust particles -->
   <div class="particles-container" id="particles"></div>
 
-  <!-- ===== OPENING SCREEN ===== -->
+  <!-- ===== TELA DE ABERTURA: ENVELOPE COM SELO DE CERA ===== -->
   <div id="opening-screen">
-    <img src="images/floral_top.jpg" alt="" class="opening-floral top">
-    <img src="images/floral_bottom.jpg" alt="" class="opening-floral bottom">
-    
-    <div class="opening-content">
-      <p class="opening-subtitle">Você está convidado(a)</p>
-      <h1 class="opening-name" id="opening-name">Bianca</h1>
-      <p class="opening-age" id="opening-age">15 anos</p>
-      <button class="opening-cta" id="open-invite">
-        Abrir Convite
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M6 9l6 6 6-6"/>
-        </svg>
-      </button>
+    <div class="envelope-card" id="open-envelope-trigger">
+      
+      <!-- Fold creases and ribbons -->
+      <div class="envelope-crease-vertical"></div>
+      <div class="envelope-ribbon top-left"></div>
+      <div class="envelope-ribbon top-right"></div>
+      <div class="envelope-ribbon bottom-left"></div>
+      <div class="envelope-ribbon bottom-right"></div>
+
+      <!-- Corner Monogram -->
+      <div class="envelope-corner-info">
+        <h2 class="envelope-script-name" id="opening-name">Bianca</h2>
+        <span class="envelope-age-tag" id="opening-age">15 ANOS</span>
+      </div>
+
+      <!-- Wax Seal Centerpiece -->
+      <div class="wax-seal-wrapper">
+        <div class="wax-seal-btn" id="open-invite" title="Clique no selo para abrir">
+          <img src="images/wax_seal.jpg" alt="Selo de Cera Bianca">
+        </div>
+        <p class="seal-prompt">Clique no selo para abrir</p>
+      </div>
+
     </div>
   </div>
 
-  <!-- ===== MAIN INVITATION ===== -->
+  <!-- ===== CONVITE PRINCIPAL ===== -->
   <main id="invitation">
+    <div class="tropical-card-container">
 
-    <!-- HERO SECTION -->
-    <section class="hero-section">
-      <div class="hero-bg-pattern"></div>
-      <img src="images/floral_top.jpg" alt="" class="hero-floral-top">
-      
-      <div class="hero-content">
-        <div class="hero-image-container">
-          <img src="images/debutante_hero.jpg" alt="Debutante" id="hero-photo">
-        </div>
+      <!-- HERO / MAIN INVITATION CARD -->
+      <section class="hero-card">
         
-        <p class="hero-overline">Celebrando</p>
-        <h1 class="hero-name" id="hero-name">Bianca</h1>
-        <div class="hero-age-badge" id="hero-age">15 anos</div>
-        <p class="hero-message" id="hero-message">Venha celebrar esse dia especial comigo!</p>
+        <!-- Elegant Arch Outline -->
+        <div class="arch-frame"></div>
 
-        <!-- Countdown -->
-        <div class="countdown-container reveal">
-          <div class="countdown-item">
-            <span class="countdown-number" id="countdown-days">0</span>
-            <span class="countdown-label">Dias</span>
-          </div>
-          <span class="countdown-separator">:</span>
-          <div class="countdown-item">
-            <span class="countdown-number" id="countdown-hours">0</span>
-            <span class="countdown-label">Horas</span>
-          </div>
-          <span class="countdown-separator">:</span>
-          <div class="countdown-item">
-            <span class="countdown-number" id="countdown-minutes">0</span>
-            <span class="countdown-label">Min</span>
-          </div>
-          <span class="countdown-separator">:</span>
-          <div class="countdown-item">
-            <span class="countdown-number" id="countdown-seconds">0</span>
-            <span class="countdown-label">Seg</span>
+        <!-- Tropical Floral Bouquet (Hibiscus & Plumeria) -->
+        <img src="images/tropical_flowers.jpg" alt="Flores Tropicais" class="tropical-corner-bouquet">
+
+        <!-- Header Content -->
+        <div class="hero-header-content">
+          <p class="hero-subtitle-tag" id="hero-age">15 ANOS</p>
+          <h1 class="hero-main-name" id="hero-name">Bianca</h1>
+          <p class="hero-invite-phrase" id="hero-message">Venha celebrar esse dia tão especial comigo!</p>
+        </div>
+
+        <!-- Date Row (Quando) -->
+        <div class="date-highlight-container">
+          <p class="date-month-script" id="date-month">dezembro</p>
+          <div class="date-row-badge">
+            <span class="date-pill-weekday" id="date-weekday">domingo</span>
+            <span class="date-day-huge" id="date-day">06</span>
+            <span class="date-time-label" id="date-time">às 11:00</span>
           </div>
         </div>
-      </div>
 
-      <img src="images/floral_bottom.jpg" alt="" class="hero-floral-bottom">
-    </section>
-
-    <!-- DATE SECTION -->
-    <section class="date-section">
-      <div class="section-divider reveal">
-        <span>✦</span>
-      </div>
-      <h2 class="section-title reveal">Quando</h2>
-      <p class="section-subtitle reveal">Salve a data!</p>
-
-      <div class="date-card reveal">
-        <p class="date-weekday" id="date-weekday">Domingo</p>
-        <div class="date-divider"></div>
-        <p class="date-month" id="date-month">Dezembro</p>
-        <p class="date-day" id="date-day">06</p>
-        <p class="date-year" id="date-year">2026</p>
-        <div class="date-divider"></div>
-        <p class="date-time" id="date-time">Às 11h00</p>
-      </div>
-    </section>
-
-    <!-- VENUE SECTION -->
-    <section class="venue-section">
-      <div class="section-divider reveal">
-        <span>✦</span>
-      </div>
-      <h2 class="section-title reveal">Onde</h2>
-      <p class="section-subtitle reveal">Local da festa</p>
-
-      <div class="venue-card reveal">
-        <div class="venue-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
-        </div>
-        <h3 class="venue-name" id="venue-name">Jhon Eventos</h3>
-        <p class="venue-address" id="venue-address">Rua Brasil, N04, Redenção</p>
-        <a href="https://share.google/Yv5tpkmpNZF2qYuD3" class="venue-map-btn" id="venue-map-link" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="3 11 22 2 13 21 11 13 3 11"/>
-          </svg>
-          Ver no Mapa
-        </a>
-      </div>
-    </section>
-
-    <!-- RSVP SECTION -->
-    <section class="rsvp-section" id="rsvp">
-      <div class="section-divider reveal">
-        <span>✦</span>
-      </div>
-      <h2 class="section-title reveal">Confirmar Presença</h2>
-      <p class="section-subtitle reveal">Sua presença é muito importante para nós!</p>
-
-      <div class="rsvp-card reveal">
-        <form id="rsvp-form" class="rsvp-form">
-          <div class="form-group">
-            <label for="rsvp-name">Nome completo *</label>
-            <input type="text" id="rsvp-name" placeholder="Seu nome" required>
-          </div>
+        <!-- The 3 Action Buttons (Local, RSVP, Presentes) -->
+        <div class="action-buttons-group">
           
-          <div class="form-group">
-            <label for="rsvp-email">E-mail</label>
-            <input type="email" id="rsvp-email" placeholder="seu@email.com">
+          <!-- Botão 1: Local -->
+          <a href="#venue" class="action-circle-item" id="btn-scroll-venue">
+            <div class="circle-btn-graphic">
+              <span class="plumeria-badge">🌸</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <span class="action-circle-text">
+              Espaço<br>
+              <strong id="action-venue-label">Jhon Eventos</strong>
+            </span>
+          </a>
+
+          <!-- Botão 2: Confirme sua presença -->
+          <a href="#rsvp" class="action-circle-item" id="btn-scroll-rsvp">
+            <div class="circle-btn-graphic">
+              <span class="plumeria-badge">🌸</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <span class="action-circle-text">
+              Confirme sua<br>
+              <strong>presença até 10/11</strong>
+            </span>
+          </a>
+
+          <!-- Botão 3: Sugestão de presente -->
+          <a href="#presentes" class="action-circle-item" id="btn-scroll-gifts">
+            <div class="circle-btn-graphic">
+              <span class="plumeria-badge">🌸</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 12 20 22 4 22 4 12"/>
+                <rect x="2" y="7" width="20" height="5"/>
+                <line x1="12" y1="22" x2="12" y2="7"/>
+                <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+                <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+              </svg>
+            </div>
+            <span class="action-circle-text">
+              Sugestão de<br>
+              <strong>presente</strong>
+            </span>
+          </a>
+
+        </div>
+
+        <p class="click-hint-text">Clique nos botões abaixo</p>
+
+        <!-- Countdown Tag -->
+        <div class="countdown-strip">
+          <div class="countdown-unit">
+            <span class="countdown-val" id="countdown-days">0</span>
+            <span class="countdown-lbl">Dias</span>
+          </div>
+          <span class="countdown-dot">:</span>
+          <div class="countdown-unit">
+            <span class="countdown-val" id="countdown-hours">0</span>
+            <span class="countdown-lbl">Horas</span>
+          </div>
+          <span class="countdown-dot">:</span>
+          <div class="countdown-unit">
+            <span class="countdown-val" id="countdown-minutes">0</span>
+            <span class="countdown-lbl">Min</span>
+          </div>
+          <span class="countdown-dot">:</span>
+          <div class="countdown-unit">
+            <span class="countdown-val" id="countdown-seconds">0</span>
+            <span class="countdown-lbl">Seg</span>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- SEÇÃO 1: LOCAL DA FESTA -->
+      <section class="tropical-section-card" id="venue">
+        <h2 class="section-script-title">Espaço</h2>
+        <p class="section-subtitle-clean">Local da nossa celebração</p>
+
+        <div class="venue-details-box">
+          <h3 class="venue-place-name" id="venue-name">Jhon Eventos</h3>
+          <p class="venue-address-text" id="venue-address">Rua Brasil, N04, Redenção</p>
+          <a href="https://share.google/Yv5tpkmpNZF2qYuD3" class="btn-tropical-action" id="venue-map-link" target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+            </svg>
+            Como Chegar no Mapa
+          </a>
+        </div>
+      </section>
+
+      <!-- SEÇÃO 2: CONFIRMAÇÃO DE PRESENÇA (RSVP) -->
+      <section class="tropical-section-card" id="rsvp">
+        <h2 class="section-script-title">Confirmação</h2>
+        <p class="section-subtitle-clean">Confirme sua presença até 10 de Novembro</p>
+
+        <form id="rsvp-form" class="rsvp-tropical-form">
+          <div class="form-field-tropical">
+            <label for="rsvp-name">Nome completo *</label>
+            <input type="text" id="rsvp-name" placeholder="Digite seu nome" required>
           </div>
 
-          <div class="form-group">
-            <label for="rsvp-phone">Telefone / WhatsApp</label>
-            <input type="tel" id="rsvp-phone" placeholder="(00) 00000-0000">
+          <div class="form-field-tropical">
+            <label for="rsvp-phone">Telefone / WhatsApp *</label>
+            <input type="tel" id="rsvp-phone" placeholder="(00) 00000-0000" required>
           </div>
 
-          <div class="form-group">
+          <div class="form-field-tropical">
+            <label for="rsvp-attending">Você irá comparecer? *</label>
+            <select id="rsvp-attending" required>
+              <option value="sim">Sim, confirmo com certeza! 🎉</option>
+              <option value="nao">Infelizmente não poderei comparecer 🥺</option>
+            </select>
+          </div>
+
+          <div class="form-field-tropical">
             <label for="rsvp-companions">Número de acompanhantes</label>
             <input type="number" id="rsvp-companions" min="0" max="10" value="0">
           </div>
 
-          <div class="form-group">
-            <label for="rsvp-message">Mensagem (opcional)</label>
-            <textarea id="rsvp-message" placeholder="Deixe uma mensagem para a aniversariante..." rows="3"></textarea>
+          <div class="form-field-tropical">
+            <label for="rsvp-message">Recadinho para a aniversariante (opcional)</label>
+            <textarea id="rsvp-message" placeholder="Deixe um recadinho de carinho para Bianca..." rows="2"></textarea>
           </div>
 
-          <button type="submit" class="rsvp-submit">
+          <button type="submit" class="btn-tropical-action btn-rsvp-submit">
             Confirmar Presença
           </button>
 
-          <p class="rsvp-deadline" id="rsvp-deadline">Confirme até 10 de Novembro</p>
+          <p class="rsvp-deadline-pill" id="rsvp-deadline">Confirmação obrigatória até 10/11</p>
         </form>
 
-        <div id="rsvp-success" class="rsvp-success">
-          <div class="rsvp-success-icon">🎉</div>
+        <div id="rsvp-success" class="rsvp-success-banner">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🌺</div>
           <h3>Presença Confirmada!</h3>
-          <p>Obrigada por confirmar! Estamos ansiosos para celebrar com você.</p>
+          <p>Sua confirmação foi registrada com sucesso. Esperamos você para comemorar esse dia incrível!</p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- GIFT SECTION -->
-    <section class="gift-section" id="presente">
-      <div class="section-divider reveal">
-        <span>✦</span>
-      </div>
-      <h2 class="section-title reveal">Sugestão de Presente</h2>
-      <p class="section-subtitle reveal">Sua presença é o melhor presente!</p>
+      <!-- SEÇÃO 3: SUGESTÃO DE PRESENTE (Matching Bottom-Right Reference) -->
+      <section class="tropical-section-card gift-card-tropical" id="presentes">
+        <img src="images/tropical_flowers.jpg" alt="" class="corner-flower-accent">
 
-      <div class="gift-card reveal">
-        <div class="gift-icon">🎁</div>
-        <p style="font-family: var(--font-elegant); font-size: 1.05rem; color: var(--cor-texto-claro); margin-bottom: 1.5rem;">
-          Caso deseje me presentear, aqui vão algumas sugestões:
-        </p>
+        <h2 class="section-script-title">Sugestão de presente</h2>
+        <p class="section-subtitle-clean">Caso deseje me presentear, algumas ideias:</p>
 
-        <div class="gift-suggestions" style="text-align: left; margin-bottom: 2rem;">
-          <div class="gift-item" style="display: flex; align-items: center; gap: 0.8rem; padding: 0.8rem 1rem; background: linear-gradient(135deg, #fff5f7, #ffeef1); border-radius: 12px; margin-bottom: 0.6rem; font-family: var(--font-elegant); font-size: 1.05rem; color: var(--cor-texto);">
-            <span style="font-size: 1.3rem;">👗</span> Roupa PP / 34
+        <div class="gift-pill-list">
+          
+          <div class="gift-pill-item">
+            <div class="gift-pill-icon-circle">👗</div>
+            <span class="gift-pill-text">Roupa PP / 34</span>
           </div>
-          <div class="gift-item" style="display: flex; align-items: center; gap: 0.8rem; padding: 0.8rem 1rem; background: linear-gradient(135deg, #fff5f7, #ffeef1); border-radius: 12px; margin-bottom: 0.6rem; font-family: var(--font-elegant); font-size: 1.05rem; color: var(--cor-texto);">
-            <span style="font-size: 1.3rem;">👠</span> Calçado 35
-          </div>
-          <div class="gift-item" style="display: flex; align-items: center; gap: 0.8rem; padding: 0.8rem 1rem; background: linear-gradient(135deg, #fff5f7, #ffeef1); border-radius: 12px; margin-bottom: 0.6rem; font-family: var(--font-elegant); font-size: 1.05rem; color: var(--cor-texto);">
-            <span style="font-size: 1.3rem;">🌸</span> Perfumes
-          </div>
-          <div class="gift-item" style="display: flex; align-items: center; gap: 0.8rem; padding: 0.8rem 1rem; background: linear-gradient(135deg, #fff5f7, #ffeef1); border-radius: 12px; margin-bottom: 0.6rem; font-family: var(--font-elegant); font-size: 1.05rem; color: var(--cor-texto);">
-            <span style="font-size: 1.3rem;">👜</span> Bolsa
-          </div>
-        </div>
 
-        <p style="font-family: var(--font-elegant); font-size: 1.05rem; color: var(--cor-texto-claro); margin-bottom: 1rem; font-style: italic;">
-          Na dúvida, pode fazer PIX 💕
-        </p>
+          <div class="gift-pill-item">
+            <div class="gift-pill-icon-circle">👠</div>
+            <span class="gift-pill-text">Calçado 35</span>
+          </div>
 
-        <div class="gift-pix-key">
-          <strong>Chave PIX</strong>
-          <span id="pix-key">biancasantos115@gmail.com</span>
+          <div class="gift-pill-item">
+            <div class="gift-pill-icon-circle">🌸</div>
+            <span class="gift-pill-text">Perfumes</span>
+          </div>
+
+          <div class="gift-pill-item">
+            <div class="gift-pill-icon-circle">👜</div>
+            <span class="gift-pill-text">Bolsa</span>
+          </div>
+
         </div>
 
-        <p style="font-family: var(--font-elegant); font-size: 0.9rem; color: var(--cor-texto-claro); margin-bottom: 1.5rem;">
-          <strong id="pix-name">Bianca dos Santos Silva</strong>
-        </p>
+        <!-- PIX Pill Feature Card -->
+        <div class="pix-feature-card">
+          <p class="pix-tagline">✨ Na dúvida, fazer um PIX ✨</p>
+          <div class="pix-key-box" id="pix-key">biancasantos115@gmail.com</div>
+          <p class="pix-holder-name" id="pix-name">Bianca dos Santos Silva</p>
+          <button class="btn-tropical-action" id="copy-pix" style="width: 100%;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+            Copiar Chave PIX
+          </button>
+        </div>
 
-        <button class="gift-copy-btn" id="copy-pix">
-          Copiar Chave PIX
-        </button>
-      </div>
-    </section>
+      </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      <img src="images/floral_bottom.jpg" alt="" class="footer-floral">
-      <p class="footer-name" id="footer-name">Bianca</p>
-      <p class="footer-text">Com amor, te espero lá! 💕</p>
-    </footer>
+      <!-- FOOTER -->
+      <footer class="tropical-footer">
+        <p class="footer-script-signature" id="footer-name">Bianca</p>
+        <p style="font-size: 0.95rem; margin-top: 0.2rem;">Venha viver essa Tropical Party inesquecível comigo! 🌺☀️</p>
+      </footer>
 
+    </div>
   </main>
 
-  <!-- Toast container -->
+  <!-- Toast Notification Container -->
   <div id="toast-container"></div>
 
   <!-- Scripts -->
   <script>
-    // ===== DADOS DO CONVITE (carregados do dados.txt) =====
-    // Substitua os valores abaixo ou configure via Firebase config
+    // ===== DADOS DO CONVITE =====
     window.CONVITE_DADOS = {
       nome: 'Bianca',
       idade: '15',
       titulo: '15 anos',
-      dia_semana: 'Domingo',
+      dia_semana: 'domingo',
       dia: '06',
-      mes: 'Dezembro',
+      mes: 'dezembro',
       ano: '2026',
-      horario: '11h00',
+      horario: '11:00',
       local_nome: 'Jhon Eventos',
       local_endereco: 'Rua Brasil, N04, Redenção',
       local_maps_link: 'https://share.google/Yv5tpkmpNZF2qYuD3',
@@ -254,15 +297,10 @@
       pix_chave: 'biancasantos115@gmail.com',
       pix_nome: 'Bianca dos Santos Silva',
       pix_banco: '',
-      mensagem_principal: 'Venha celebrar esse dia especial comigo!',
-      cor_primaria: '#9f3653',
-      cor_secundaria: '#cc4178',
-      cor_rosa_claro: '#f8b5ba',
-      cor_escura: '#800045',
-      cor_gradiente: '#d05276'
+      mensagem_principal: 'Venha celebrar esse dia tão especial comigo!'
     };
 
-    // Firebase Config
+    // Firebase Config (Produção)
     window.FIREBASE_CONFIG = {
       apiKey: "AIzaSyCgg4U7SYprv56KUSzb2OStQbSVL3re_a0",
       authDomain: "convite-bianca-15anos.firebaseapp.com",

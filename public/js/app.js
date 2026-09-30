@@ -1,19 +1,19 @@
-// ===================================
-// CONVITE DIGITAL - APP PRINCIPAL
-// ===================================
+// ========================================================
+// CONVITE DIGITAL - TROPICAL PARTY (BIANCA 15 ANOS)
+// ========================================================
 
 import { db, collection, addDoc, serverTimestamp } from './firebase-config.js';
 
-// ===== DADOS DO CONVITE (carregados do dados.txt) =====
+// ===== DADOS DO CONVITE =====
 const DADOS = window.CONVITE_DADOS || {
   nome: 'Bianca',
   idade: '15',
   titulo: '15 anos',
-  dia_semana: 'Domingo',
+  dia_semana: 'domingo',
   dia: '06',
-  mes: 'Dezembro',
+  mes: 'dezembro',
   ano: '2026',
-  horario: '11h00',
+  horario: '11:00',
   local_nome: 'Jhon Eventos',
   local_endereco: 'Rua Brasil, N04, Redenção',
   local_maps_link: 'https://share.google/Yv5tpkmpNZF2qYuD3',
@@ -21,166 +21,183 @@ const DADOS = window.CONVITE_DADOS || {
   pix_chave: 'biancasantos115@gmail.com',
   pix_nome: 'Bianca dos Santos Silva',
   pix_banco: '',
-  mensagem_principal: 'Venha celebrar esse dia especial comigo!',
-  cor_primaria: '#9f3653',
-  cor_secundaria: '#cc4178',
-  cor_rosa_claro: '#f8b5ba',
-  cor_escura: '#800045',
-  cor_gradiente: '#d05276'
+  mensagem_principal: 'Venha celebrar esse dia tão especial comigo!'
 };
 
 // ===== INICIALIZAÇÃO =====
 document.addEventListener('DOMContentLoaded', () => {
   populateInvitation();
-  applyCustomColors();
   initOpeningScreen();
   initParticles();
-  initScrollAnimations();
   initCountdown();
   initRSVPForm();
   initCopyPix();
+  initSmoothScroll();
 });
 
 // ===== POPULAR CONVITE COM DADOS =====
 function populateInvitation() {
   // Opening screen
-  document.getElementById('opening-name').textContent = DADOS.nome;
-  document.getElementById('opening-age').textContent = DADOS.titulo;
+  const opName = document.getElementById('opening-name');
+  if (opName) opName.textContent = DADOS.nome;
+  const opAge = document.getElementById('opening-age');
+  if (opAge) opAge.textContent = (DADOS.titulo || '15 ANOS').toUpperCase();
 
   // Hero section
-  document.getElementById('hero-name').textContent = DADOS.nome;
-  document.getElementById('hero-age').textContent = DADOS.titulo;
-  document.getElementById('hero-message').textContent = DADOS.mensagem_principal;
+  const heroName = document.getElementById('hero-name');
+  if (heroName) heroName.textContent = DADOS.nome;
+  const heroAge = document.getElementById('hero-age');
+  if (heroAge) heroAge.textContent = (DADOS.titulo || '15 ANOS').toUpperCase();
+  const heroMsg = document.getElementById('hero-message');
+  if (heroMsg) heroMsg.textContent = DADOS.mensagem_principal;
 
   // Date section
-  document.getElementById('date-weekday').textContent = DADOS.dia_semana;
-  document.getElementById('date-month').textContent = DADOS.mes;
-  document.getElementById('date-day').textContent = DADOS.dia;
-  document.getElementById('date-year').textContent = DADOS.ano;
-  document.getElementById('date-time').textContent = `Às ${DADOS.horario}`;
+  const dateWd = document.getElementById('date-weekday');
+  if (dateWd) dateWd.textContent = DADOS.dia_semana.toLowerCase();
+  const dateM = document.getElementById('date-month');
+  if (dateM) dateM.textContent = DADOS.mes.toLowerCase();
+  const dateD = document.getElementById('date-day');
+  if (dateD) dateD.textContent = DADOS.dia;
+  const dateT = document.getElementById('date-time');
+  if (dateT) dateT.textContent = `às ${DADOS.horario}`;
+
+  // Action Buttons
+  const venueLabel = document.getElementById('action-venue-label');
+  if (venueLabel) venueLabel.textContent = DADOS.local_nome;
 
   // Venue section
-  document.getElementById('venue-name').textContent = DADOS.local_nome;
-  document.getElementById('venue-address').textContent = DADOS.local_endereco;
+  const vName = document.getElementById('venue-name');
+  if (vName) vName.textContent = DADOS.local_nome;
+  const vAddr = document.getElementById('venue-address');
+  if (vAddr) vAddr.textContent = DADOS.local_endereco;
   const mapLink = document.getElementById('venue-map-link');
   if (mapLink) mapLink.href = DADOS.local_maps_link;
 
-  // RSVP
-  document.getElementById('rsvp-deadline').textContent = `Confirme até ${DADOS.data_limite_confirmacao}`;
+  // RSVP deadline
+  const rsvpDl = document.getElementById('rsvp-deadline');
+  if (rsvpDl) rsvpDl.textContent = `Confirmação obrigatória até ${DADOS.data_limite_confirmacao}`;
 
   // Gift section
-  document.getElementById('pix-key').textContent = DADOS.pix_chave;
-  document.getElementById('pix-name').textContent = DADOS.pix_nome;
-  const pixBank = document.getElementById('pix-bank');
-  if (pixBank) pixBank.textContent = DADOS.pix_banco;
+  const pixK = document.getElementById('pix-key');
+  if (pixK) pixK.textContent = DADOS.pix_chave;
+  const pixN = document.getElementById('pix-name');
+  if (pixN) pixN.textContent = DADOS.pix_nome;
 
   // Footer
-  document.getElementById('footer-name').textContent = DADOS.nome;
+  const footerName = document.getElementById('footer-name');
+  if (footerName) footerName.textContent = DADOS.nome;
 
   // Page title
-  document.title = `Convite ${DADOS.titulo} - ${DADOS.nome}`;
+  document.title = `Convite ${DADOS.titulo} - ${DADOS.nome} | Tropical Party`;
 }
 
-// ===== CORES PERSONALIZADAS =====
-function applyCustomColors() {
-  const root = document.documentElement;
-  if (DADOS.cor_primaria) root.style.setProperty('--cor-primaria', DADOS.cor_primaria);
-  if (DADOS.cor_secundaria) root.style.setProperty('--cor-secundaria', DADOS.cor_secundaria);
-  if (DADOS.cor_rosa_claro) root.style.setProperty('--cor-rosa-claro', DADOS.cor_rosa_claro);
-  if (DADOS.cor_escura) root.style.setProperty('--cor-escura', DADOS.cor_escura);
-  if (DADOS.cor_gradiente) root.style.setProperty('--cor-gradiente', DADOS.cor_gradiente);
-}
-
-// ===== TELA DE ABERTURA =====
+// ===== TELA DE ABERTURA COM SELO DE CERA =====
 function initOpeningScreen() {
   const screen = document.getElementById('opening-screen');
+  const sealBtn = document.getElementById('open-invite');
+  const envelope = document.getElementById('open-envelope-trigger') || screen;
   const invitation = document.getElementById('invitation');
 
-  screen.addEventListener('click', () => {
-    screen.classList.add('hide');
+  if (!screen || !invitation) return;
+
+  function openEnvelope() {
+    if (sealBtn) {
+      sealBtn.style.transform = 'scale(0.92)';
+      setTimeout(() => {
+        sealBtn.style.transform = 'scale(1.15)';
+      }, 150);
+    }
+
     setTimeout(() => {
-      screen.style.display = 'none';
-      invitation.classList.add('show');
-    }, 800);
+      screen.classList.add('hide');
+      setTimeout(() => {
+        screen.style.display = 'none';
+        invitation.classList.add('show');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 750);
+    }, 200);
+  }
+
+  envelope.addEventListener('click', openEnvelope);
+}
+
+// ===== NAVEGAÇÃO SUAVE DOS BOTÕES CIRCULARES =====
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId && targetId !== '#') {
+        const targetElem = document.querySelector(targetId);
+        if (targetElem) {
+          e.preventDefault();
+          targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
   });
 }
 
-// ===== PARTÍCULAS FLUTUANTES =====
+// ===== PARTÍCULAS TROPICAIS (SUNBEAMS / SPARKLES) =====
 function initParticles() {
   const container = document.getElementById('particles');
   if (!container) return;
 
-  const particleCount = 20;
-  for (let i = 0; i < particleCount; i++) {
-    const particle = document.createElement('div');
-    particle.classList.add('particle');
-    particle.style.left = Math.random() * 100 + '%';
-    particle.style.width = (Math.random() * 6 + 3) + 'px';
-    particle.style.height = particle.style.width;
-    particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
-    particle.style.animationDelay = (Math.random() * 10) + 's';
-    particle.style.opacity = Math.random() * 0.3 + 0.1;
+  const count = 18;
+  for (let i = 0; i < count; i++) {
+    const p = document.createElement('div');
+    p.classList.add('particle');
+    p.style.left = (Math.random() * 100) + '%';
+    const size = Math.random() * 6 + 3;
+    p.style.width = size + 'px';
+    p.style.height = size + 'px';
+    p.style.animationDuration = (Math.random() * 12 + 10) + 's';
+    p.style.animationDelay = (Math.random() * 8) + 's';
+    
+    // Sunny gold / warm hibiscus tones
+    const hue = Math.random() > 0.4 ? 42 : 345;
+    p.style.background = `radial-gradient(circle, hsla(${hue}, 100%, 75%, 0.85) 0%, hsla(${hue}, 90%, 60%, 0.2) 65%, transparent 100%)`;
 
-    // Random shapes
-    if (Math.random() > 0.5) {
-      particle.style.borderRadius = '50%';
-      particle.style.background = `hsl(${340 + Math.random() * 30}, 70%, ${70 + Math.random() * 20}%)`;
-    } else {
-      particle.innerHTML = '✿';
-      particle.style.background = 'none';
-      particle.style.fontSize = (Math.random() * 12 + 8) + 'px';
-      particle.style.color = `hsl(${340 + Math.random() * 30}, 60%, ${60 + Math.random() * 20}%)`;
-      particle.style.width = 'auto';
-      particle.style.height = 'auto';
-    }
-
-    container.appendChild(particle);
+    container.appendChild(p);
   }
 }
 
-// ===== SCROLL ANIMATIONS =====
-function initScrollAnimations() {
-  const reveals = document.querySelectorAll('.reveal');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      }
-    });
-  }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px'
-  });
-
-  reveals.forEach(el => observer.observe(el));
-}
-
-// ===== COUNTDOWN =====
+// ===== COUNTDOWN TIMER =====
 function initCountdown() {
   const months = {
-    'Janeiro': 0, 'Fevereiro': 1, 'Março': 2, 'Abril': 3,
-    'Maio': 4, 'Junho': 5, 'Julho': 6, 'Agosto': 7,
-    'Setembro': 8, 'Outubro': 9, 'Novembro': 10, 'Dezembro': 11
+    'janeiro': 0, 'fevereiro': 1, 'março': 2, 'abril': 3,
+    'maio': 4, 'junho': 5, 'julho': 6, 'agosto': 7,
+    'setembro': 8, 'outubro': 9, 'novembro': 10, 'dezembro': 11
   };
 
-  const monthIndex = months[DADOS.mes] || 5;
-  const hourMatch = DADOS.horario.match(/(\d+)/);
-  const hour = hourMatch ? parseInt(hourMatch[1]) : 19;
-  const minuteMatch = DADOS.horario.match(/h(\d+)/);
-  const minute = minuteMatch ? parseInt(minuteMatch[1]) : 30;
+  const rawMonth = (DADOS.mes || 'dezembro').toLowerCase().trim();
+  const monthIndex = months[rawMonth] !== undefined ? months[rawMonth] : 11;
+  const day = parseInt(DADOS.dia) || 6;
+  const year = parseInt(DADOS.ano) || 2026;
 
-  const eventDate = new Date(parseInt(DADOS.ano), monthIndex, parseInt(DADOS.dia), hour, minute);
+  // Parse time (e.g. "11:00" or "11h00")
+  const timeClean = (DADOS.horario || '11:00').replace('h', ':');
+  const parts = timeClean.split(':');
+  const hour = parseInt(parts[0]) || 11;
+  const minute = parseInt(parts[1]) || 0;
 
-  function updateCountdown() {
+  const eventDate = new Date(year, monthIndex, day, hour, minute);
+
+  function update() {
     const now = new Date();
     const diff = eventDate - now;
 
+    const daysEl = document.getElementById('countdown-days');
+    const hoursEl = document.getElementById('countdown-hours');
+    const minsEl = document.getElementById('countdown-minutes');
+    const secsEl = document.getElementById('countdown-seconds');
+
+    if (!daysEl) return;
+
     if (diff <= 0) {
-      document.getElementById('countdown-days').textContent = '0';
-      document.getElementById('countdown-hours').textContent = '0';
-      document.getElementById('countdown-minutes').textContent = '0';
-      document.getElementById('countdown-seconds').textContent = '0';
+      daysEl.textContent = '0';
+      hoursEl.textContent = '0';
+      minsEl.textContent = '0';
+      secsEl.textContent = '0';
       return;
     }
 
@@ -189,14 +206,14 @@ function initCountdown() {
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-    document.getElementById('countdown-days').textContent = days;
-    document.getElementById('countdown-hours').textContent = hours;
-    document.getElementById('countdown-minutes').textContent = minutes;
-    document.getElementById('countdown-seconds').textContent = seconds;
+    daysEl.textContent = days;
+    hoursEl.textContent = hours < 10 ? '0' + hours : hours;
+    minsEl.textContent = minutes < 10 ? '0' + minutes : minutes;
+    secsEl.textContent = seconds < 10 ? '0' + seconds : seconds;
   }
 
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
+  update();
+  setInterval(update, 1000);
 }
 
 // ===== FORMULÁRIO RSVP =====
@@ -207,15 +224,15 @@ function initRSVPForm() {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const submitBtn = form.querySelector('.rsvp-submit');
-    const originalText = submitBtn.textContent;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
     submitBtn.disabled = true;
-    submitBtn.innerHTML = '<span class="loading-spinner"></span>Enviando...';
+    submitBtn.innerHTML = 'Enviando confirmação...';
 
     const formData = {
       nome: form.querySelector('#rsvp-name').value.trim(),
-      email: form.querySelector('#rsvp-email')?.value.trim() || '',
       telefone: form.querySelector('#rsvp-phone')?.value.trim() || '',
+      presenca: form.querySelector('#rsvp-attending')?.value || 'sim',
       acompanhantes: parseInt(form.querySelector('#rsvp-companions')?.value) || 0,
       mensagem: form.querySelector('#rsvp-message')?.value.trim() || '',
       status: 'confirmado',
@@ -229,14 +246,14 @@ function initRSVPForm() {
       // Show success
       form.style.display = 'none';
       const success = document.getElementById('rsvp-success');
-      success.classList.add('show');
+      if (success) success.classList.add('show');
 
-      showToast('Presença confirmada com sucesso! 🎉');
+      showToast('Presença confirmada com sucesso! 🌺🎉');
     } catch (error) {
       console.error('Erro ao confirmar presença:', error);
       showToast('Erro ao confirmar. Tente novamente.');
       submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
+      submitBtn.innerHTML = originalText;
     }
   });
 }
@@ -247,54 +264,39 @@ function initCopyPix() {
   if (!copyBtn) return;
 
   copyBtn.addEventListener('click', () => {
-    const pixKey = DADOS.pix_chave;
+    const pixKey = DADOS.pix_chave || 'biancasantos115@gmail.com';
     navigator.clipboard.writeText(pixKey).then(() => {
-      copyBtn.classList.add('copied');
-      copyBtn.textContent = '✓ Copiado!';
-      showToast('Chave PIX copiada!');
+      const origHtml = copyBtn.innerHTML;
+      copyBtn.innerHTML = '✓ Chave Copiada com Sucesso!';
+      showToast('Chave PIX copiada para a área de transferência! ✨');
 
       setTimeout(() => {
-        copyBtn.classList.remove('copied');
-        copyBtn.textContent = 'Copiar Chave PIX';
+        copyBtn.innerHTML = origHtml;
       }, 3000);
     }).catch(() => {
-      // Fallback for older browsers
-      const textArea = document.createElement('textarea');
-      textArea.value = pixKey;
-      document.body.appendChild(textArea);
-      textArea.select();
+      // Fallback
+      const ta = document.createElement('textarea');
+      ta.value = pixKey;
+      document.body.appendChild(ta);
+      ta.select();
       document.execCommand('copy');
-      document.body.removeChild(textArea);
-
-      copyBtn.classList.add('copied');
-      copyBtn.textContent = '✓ Copiado!';
-      showToast('Chave PIX copiada!');
-
-      setTimeout(() => {
-        copyBtn.classList.remove('copied');
-        copyBtn.textContent = 'Copiar Chave PIX';
-      }, 3000);
+      document.body.removeChild(ta);
+      showToast('Chave PIX copiada! ✨');
     });
   });
 }
 
-// ===== TOAST =====
-function showToast(message) {
-  // Remove existing toast
-  const existing = document.querySelector('.toast');
-  if (existing) existing.remove();
+// ===== TOAST FEEDBACK =====
+function showToast(msg) {
+  const container = document.getElementById('toast-container');
+  if (!container) return;
 
   const toast = document.createElement('div');
   toast.className = 'toast';
-  toast.textContent = message;
-  document.body.appendChild(toast);
+  toast.textContent = msg;
 
-  requestAnimationFrame(() => {
-    toast.classList.add('show');
-  });
-
+  container.appendChild(toast);
   setTimeout(() => {
-    toast.classList.remove('show');
-    setTimeout(() => toast.remove(), 400);
-  }, 3000);
+    if (toast.parentNode) toast.parentNode.removeChild(toast);
+  }, 2900);
 }
