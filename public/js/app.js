@@ -233,7 +233,7 @@ function initRSVPForm() {
       nome: form.querySelector('#rsvp-name').value.trim(),
       telefone: form.querySelector('#rsvp-phone')?.value.trim() || '',
       presenca: form.querySelector('#rsvp-attending')?.value || 'sim',
-      acompanhantes: parseInt(form.querySelector('#rsvp-companions')?.value) || 0,
+      acompanhantes: 5, // Fixo: Válido para 5 acompanhantes
       mensagem: form.querySelector('#rsvp-message')?.value.trim() || '',
       status: 'confirmado',
       criadoEm: serverTimestamp(),

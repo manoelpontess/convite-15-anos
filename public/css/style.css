@@ -865,6 +865,42 @@ body {
   box-shadow: 0 0 0 4px rgba(255, 212, 71, 0.3);
 }
 
+/* Válido para 5 acompanhantes badge */
+.rsvp-fixed-companions-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(255, 220, 100, 0.65);
+  border-radius: 16px;
+  padding: 0.85rem 1.1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  text-align: left;
+}
+
+.rsvp-fixed-companions-badge .badge-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.rsvp-fixed-companions-badge strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.rsvp-fixed-companions-badge span {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
 .btn-rsvp-submit {
   width: 100%;
   padding: 1.05rem;
