@@ -668,17 +668,6 @@ body {
   position: relative;
 }
 
-.corner-flower-accent {
-  position: absolute;
-  top: -15px;
-  left: -15px;
-  width: 140px;
-  pointer-events: none;
-  mix-blend-mode: multiply;
-  opacity: 0.9;
-  filter: contrast(1.05);
-}
-
 .gift-pill-list {
   display: flex;
   flex-direction: column;
