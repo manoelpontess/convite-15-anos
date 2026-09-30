@@ -113,6 +113,17 @@ function initOpeningScreen() {
       setTimeout(() => {
         screen.style.display = 'none';
         invitation.classList.add('show');
+        
+        const hash = window.location.hash;
+        if (hash) {
+          const target = document.querySelector(hash);
+          if (target) {
+            setTimeout(() => {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+            return;
+          }
+        }
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }, 750);
     }, 200);

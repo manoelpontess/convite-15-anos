@@ -26,16 +26,16 @@
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "max-age=604800"
+            "value": "max-age=86400"
           }
         ]
       },
       {
-        "source": "**/*.@(css|js)",
+        "source": "**/*.@(css|js|html)",
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "max-age=86400"
+            "value": "no-cache, no-store, must-revalidate"
           }
         ]
       }

@@ -9,7 +9,7 @@
   <meta property="og:description" content="Venha celebrar os 15 anos de Bianca comigo!">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌺</text></svg>">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20260929-tropical-2">
 </head>
 <body>
 
@@ -17,8 +17,8 @@
   <div class="particles-container" id="particles"></div>
 
   <!-- ===== TELA DE ABERTURA: ENVELOPE COM SELO DE CERA ===== -->
-  <div id="opening-screen">
-    <div class="envelope-card" id="open-envelope-trigger">
+  <div id="opening-screen" style="position: fixed; inset: 0; width: 100vw; height: 100vh; background: linear-gradient(145deg, #d61c5a 0%, #e8386f 35%, #f26949 68%, #fbaa38 100%); display: flex; align-items: center; justify-content: center; z-index: 99999; cursor: pointer;">
+    <div class="envelope-card" id="open-envelope-trigger" style="position: relative; width: 90vw; max-width: 420px; height: 82vh; max-height: 720px; border-radius: 20px; background: inherit; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 25px 60px rgba(120, 10, 40, 0.5);">
       
       <!-- Fold creases and ribbons -->
       <div class="envelope-crease-vertical"></div>
@@ -35,8 +35,8 @@
 
       <!-- Wax Seal Centerpiece -->
       <div class="wax-seal-wrapper">
-        <div class="wax-seal-btn" id="open-invite" title="Clique no selo para abrir">
-          <img src="images/wax_seal.jpg" alt="Selo de Cera Bianca">
+        <div class="wax-seal-btn" id="open-invite" title="Clique no selo para abrir" style="width: 140px; height: 140px; max-width: 140px; max-height: 140px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 14px 40px rgba(160, 50, 10, 0.45); border: 3px solid rgba(255, 220, 150, 0.3);">
+          <img src="images/wax_seal.jpg" alt="Selo de Cera Bianca" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; mix-blend-mode: multiply;">
         </div>
         <p class="seal-prompt">Clique no selo para abrir</p>
       </div>
@@ -312,7 +312,7 @@
       appId: "1:335395927539:web:f180b3f84dc9db03d90e86"
     };
   </script>
-  <script type="module" src="js/app.js"></script>
+  <script type="module" src="js/app.js?v=20260929-tropical-2"></script>
 
 </body>
 </html>
